@@ -10,6 +10,8 @@ import Section6 from '@/pages/section/section6';
 import Section7 from '@/pages/section/section7';
 import styled from 'styled-components';
 import { useState, useRef } from 'react';
+import { db } from '@/firebase';
+import { doc, setDoc } from 'firebase/firestore';
 
 const Container = styled.div`
   width: 100%;
@@ -119,9 +121,39 @@ const Apply = () => {
     }));
   };
 
-  const handleSubmit = () => {
+  const saveFormData = async (formData) => {
+    const { name, contact, generation, field, introduction, motivation, link } =
+      formData;
+    try {
+      // 문서 ID를 name + id으로 지정하여 저장
+      await setDoc(doc(db, '6th', name + Date.now()), {
+        name,
+        contact,
+        generation,
+        field,
+        introduction,
+        motivation,
+        link,
+      });
+
+      alert('마스외전 5기 모집 지원에 성공했습니다!');
+      window.location.href = '../index.html';
+    } catch (error) {
+      console.log('ERROR : ', error);
+      alert('오류가 발생하였습니다. 관리자에게 문의해주세요.');
+    }
+  };
+
+  const handleSubmit = async () => {
     console.log('Form Data:', formData);
-    // 여기서 서버에 데이터를 전송하거나 다른 로직을 추가할 수 있습니다.
+
+    // 파이어 베이스 사용해서 formdata 저장하기
+    try {
+      await saveFormData(formData);
+      console.log('Data saved to Firestore');
+    } catch (error) {
+      console.error('Error saving data to Firestore:', error);
+    }
   };
 
   const handleNext = (currentIndex) => {
