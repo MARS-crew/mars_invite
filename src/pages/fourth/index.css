@@ -1,6 +1,6 @@
 /* src/pages/SecondScreen.css */
 .fourth-screen-container {
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   width: 100vw;
   flex-direction: column;

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import FirstScreen from '@/pages/first';
 import SecondScreen from '@/pages/second';
 import ThirdScreen from '@/pages/third';

@@ -10,19 +10,19 @@ const FirstScreen = () => {
   const navigate = useNavigate();
   const [position, setPosition] = useState({ top: 0, left: 0 });
 
-  useEffect(() => {
-    const moveAstronaut = () => {
-      const randomTop = Math.floor(Math.random() * (window.innerHeight - 50));
-      const randomLeft = Math.floor(Math.random() * (window.innerWidth - 50));
-      setPosition({
-        top: randomTop,
-        left: randomLeft,
-      });
-    };
-    moveAstronaut();
-    const interval = setInterval(moveAstronaut, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const moveAstronaut = () => {
+  //     const randomTop = Math.floor(Math.random() * (window.innerHeight - 50));
+  //     const randomLeft = Math.floor(Math.random() * (window.innerWidth - 50));
+  //     setPosition({
+  //       top: randomTop,
+  //       left: randomLeft,
+  //     });
+  //   };
+  //   moveAstronaut();
+  //   const interval = setInterval(moveAstronaut, 3000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const scrollToNextScreen = () => {
     window.scrollTo({
@@ -46,12 +46,12 @@ const FirstScreen = () => {
         <h2>마스외전 6기를 찾고 있습니다.</h2>
       </div>
       <img src={Planet} alt="Mars" className="planet" />
-      <img
+      {/* <img
         src={astronaut}
         alt="astronaut"
         className="astronaut"
         style={{ top: `${position.top}px`, left: `${position.left}px` }}
-      />
+      /> */}
       <div className="vertical-line" />
       <img
         src={downArrow}

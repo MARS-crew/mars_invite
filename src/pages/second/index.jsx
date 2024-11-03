@@ -44,6 +44,20 @@ const SecondScreen = () => {
     transRef.start();
   }, [index]);
 
+  const scrollToNextScreen = () => {
+    window.scrollTo({
+      top: window.innerHeight * 0,
+      behavior: 'smooth',
+    });
+  };
+
+  const scrollToUpScreen = () => {
+    window.scrollTo({
+      top: window.innerHeight * 2,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <div className="second-screen-container">
       {transitions((style, i) => {
@@ -56,18 +70,13 @@ const SecondScreen = () => {
             src={topArrow}
             alt="Top Arrow"
             className="top-arrow"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={scrollToNextScreen}
           />
           <img
             src={downArrow}
             alt="Down Arrow"
             className="down-arrow"
-            onClick={() =>
-              window.scrollTo({
-                top: window.innerHeight * 2,
-                behavior: 'smooth',
-              })
-            }
+            onClick={scrollToUpScreen}
           />
         </>
       : <img

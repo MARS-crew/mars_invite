@@ -12,7 +12,7 @@ body {
 
 .home-container {
   width: 100vw;
-  height: 400vh;
+  height: 400dvh;
   display: flex;
   flex-direction: column;
   background: #000;
