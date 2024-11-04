@@ -351,7 +351,7 @@ Error generating stack: `+s.message+`
   width: 100%;
   outline: none;
   resize: none;
-  overflow-y: hidden;
+
   line-height: 1.5rem;
   max-height: calc(1.5rem * 6);
   &:focus {
@@ -388,7 +388,6 @@ Error generating stack: `+s.message+`
   width: 80%;
   outline: none;
   resize: none;
-  overflow-y: hidden;
   line-height: 1.5rem;
   max-height: calc(1.5rem * 10);
   &:focus {
