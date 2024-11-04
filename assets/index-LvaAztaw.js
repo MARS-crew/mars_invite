@@ -314,7 +314,7 @@ Error generating stack: `+s.message+`
   width: 100%;
   outline: none;
   resize: none;
-  overflow-y: hidden;
+  overflow-y: auto;
   line-height: 1.5rem;
   max-height: calc(1.5rem * 10);
   &:focus {
@@ -351,7 +351,7 @@ Error generating stack: `+s.message+`
   width: 100%;
   outline: none;
   resize: none;
-  overflow-y: hidden;
+  overflow-y: auto;
   line-height: 1.5rem;
   max-height: calc(1.5rem * 10);
   &:focus {
@@ -2210,4 +2210,4 @@ This typically indicates that your device does not have a healthy Internet conne
   padding: 10px 10px;
   background-color: ${e=>e.active?"yellow":"white"};
   cursor: pointer;
-`,pN=()=>{const e=V1(),[t,n]=j.useState(1),[r,i]=j.useState({name:"",contact:"",generation:"",field:[],introduction:"",motivation:"",link:""}),s=[j.useRef(null),j.useRef(null),j.useRef(null),j.useRef(null),j.useRef(null),j.useRef(null),j.useRef(null)],a=()=>{e("/"),window.scrollTo({top:0,left:0})},l=m=>{s[m-1].current&&s[m-1].current.scrollIntoView({behavior:"smooth"}),n(m)},u=(m,T)=>{i(I=>({...I,[m]:T}))},h=async m=>{const{name:T,contact:I,generation:R,field:N,introduction:w,motivation:v,link:S}=m;try{await rN(B4(aN,"6th",T+Date.now()),{name:T,contact:I,generation:R,field:N,introduction:w,motivation:v,link:S}),alert("마스외전 5기 모집 지원에 성공했습니다!"),window.location.href="../index.html"}catch(V){console.log("ERROR : ",V),alert("오류가 발생하였습니다. 관리자에게 문의해주세요.")}},d=async()=>{console.log("Form Data:",r);try{await h(r),console.log("Data saved to Firestore")}catch(m){console.error("Error saving data to Firestore:",m)}},p=m=>{m<s.length-1&&l(m+2)};return x.jsxs(lN,{className:"apply-container",children:[x.jsx(uN,{src:j_,alt:"Logo"}),x.jsx(cN,{onClick:a,children:"돌아가기"}),x.jsx(fN,{children:[1,2,3,4,5,6,7].map(m=>x.jsx(dN,{onClick:()=>l(m),active:t===m},m))}),[1,2,3,4,5,6,7].map((m,T)=>x.jsxs(hN,{ref:s[T],children:[T===0&&x.jsx(mx,{onNext:()=>p(T),onChange:I=>u("name",I)}),T===1&&x.jsx(wx,{onNext:()=>p(T),onChange:I=>u("contact",I)}),T===2&&x.jsx(Cx,{onNext:()=>p(T),onChange:I=>u("generation",I)}),T===3&&x.jsx(kx,{onNext:()=>p(T),onChange:I=>u("field",I)}),T===4&&x.jsx(Mx,{onNext:()=>p(T),onChange:I=>u("introduction",I)}),T===5&&x.jsx($x,{onNext:()=>p(T),onChange:I=>u("motivation",I)}),T===6&&x.jsx(Qx,{onNext:d,onChange:I=>u("link",I)})]},m))]})};function mN(){return x.jsx(U2,{basename:"mars_invite",children:x.jsxs(j2,{children:[x.jsx(lf,{path:"/",element:x.jsx(ux,{})}),x.jsx(lf,{path:"/apply",element:x.jsx(pN,{})})]})})}dh.createRoot(document.getElementById("root")).render(x.jsx(mN,{}));
+`,pN=()=>{const e=V1(),[t,n]=j.useState(1),[r,i]=j.useState({name:"",contact:"",generation:"",field:[],introduction:"",motivation:"",link:""}),s=[j.useRef(null),j.useRef(null),j.useRef(null),j.useRef(null),j.useRef(null),j.useRef(null),j.useRef(null)],a=()=>{e("/"),window.scrollTo({top:0,left:0})},l=m=>{s[m-1].current&&s[m-1].current.scrollIntoView({behavior:"smooth"}),n(m)},u=(m,T)=>{i(I=>({...I,[m]:T}))},h=async m=>{const{name:T,contact:I,generation:R,field:N,introduction:w,motivation:v,link:S}=m;try{await rN(B4(aN,"6th",T+Date.now()),{name:T,contact:I,generation:R,field:N,introduction:w,motivation:v,link:S}),alert("마스외전 5기 모집 지원에 성공했습니다!"),window.location.href="../index.html"}catch(V){console.log("ERROR : ",V),alert("오류가 발생하였습니다. 관리자에게 문의해주세요.")}},d=async()=>{console.log("Form Data:",r);try{await h(r),console.log("Data saved to Firestore")}catch(m){console.error("Error saving data to Firestore:",m)}},p=m=>{m<s.length-1&&(document.activeElement.blur(),setTimeout(()=>{l(m+2)},100))};return x.jsxs(lN,{className:"apply-container",children:[x.jsx(uN,{src:j_,alt:"Logo"}),x.jsx(cN,{onClick:a,children:"돌아가기"}),x.jsx(fN,{children:[1,2,3,4,5,6,7].map(m=>x.jsx(dN,{onClick:()=>l(m),active:t===m},m))}),[1,2,3,4,5,6,7].map((m,T)=>x.jsxs(hN,{ref:s[T],children:[T===0&&x.jsx(mx,{onNext:()=>p(T),onChange:I=>u("name",I)}),T===1&&x.jsx(wx,{onNext:()=>p(T),onChange:I=>u("contact",I)}),T===2&&x.jsx(Cx,{onNext:()=>p(T),onChange:I=>u("generation",I)}),T===3&&x.jsx(kx,{onNext:()=>p(T),onChange:I=>u("field",I)}),T===4&&x.jsx(Mx,{onNext:()=>p(T),onChange:I=>u("introduction",I)}),T===5&&x.jsx($x,{onNext:()=>p(T),onChange:I=>u("motivation",I)}),T===6&&x.jsx(Qx,{onNext:d,onChange:I=>u("link",I)})]},m))]})};function mN(){return x.jsx(U2,{basename:"mars_invite",children:x.jsxs(j2,{children:[x.jsx(lf,{path:"/",element:x.jsx(ux,{})}),x.jsx(lf,{path:"/apply",element:x.jsx(pN,{})})]})})}dh.createRoot(document.getElementById("root")).render(x.jsx(mN,{}));
