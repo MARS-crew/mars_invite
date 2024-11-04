@@ -9,8 +9,8 @@ import { useState, useEffect } from 'react';
 import { useTransition, animated, useSpringRef } from '@react-spring/web';
 
 const pages = [
-  ({ style, setIndex }) => (
-    <animated.div className="page lightpink" style={style}>
+  ({ setIndex }) => (
+    <animated.div className="page lightpink">
       <h2 className="page-title">마스외전에 놀러와</h2>
       <h3 className="page-subtitle" onClick={() => setIndex(1)}>
         우리는

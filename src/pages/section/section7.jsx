@@ -12,7 +12,6 @@ const StyledTextarea = styled.textarea`
   width: 80%;
   outline: none;
   resize: none;
-  overflow-y: hidden;
   line-height: 1.5rem;
   max-height: calc(1.5rem * 10);
   &:focus {

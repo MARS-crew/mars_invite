@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useNavigate } from 'react-router-dom';
 import logo from '@/assets/images/logo.png';
 import bg from '@/assets/images/space_v.png';
@@ -9,13 +10,13 @@ import Section5 from '@/pages/section/section5';
 import Section6 from '@/pages/section/section6';
 import Section7 from '@/pages/section/section7';
 import styled from 'styled-components';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { db } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 
 const Container = styled.div`
   width: 100%;
-  height: 700vh; /* 화면 높이의 6배 */
+  height: 700dvh;
   overflow-y: scroll;
   position: relative;
   display: flex;
@@ -51,7 +52,7 @@ const BackButton = styled.div`
 `;
 
 const Section = styled.section`
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -79,6 +80,7 @@ const NavButton = styled.button`
 
 const Apply = () => {
   const navigate = useNavigate();
+  const inputRefs = useRef([]);
   const [currentSection, setCurrentSection] = useState(1);
   const [formData, setFormData] = useState({
     name: '',
@@ -90,15 +92,41 @@ const Apply = () => {
     link: '',
   });
 
-  const sectionRefs = [
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-  ];
+  const sectionRefs = Array.from({ length: 7 }, () => useRef(null));
+
+  const [isNavigationVisible, setIsNavigationVisible] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerHeight < 400) {
+        setIsNavigationVisible(false);
+      } else {
+        setIsNavigationVisible(true);
+      }
+    };
+
+    const handleOrientationChange = () => {
+      // Add a small delay before scrolling to ensure the keyboard is hidden
+      setTimeout(() => {
+        if (sectionRefs[currentSection - 1].current) {
+          sectionRefs[currentSection - 1].current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest',
+          });
+        }
+      }, 300); // Adjust the delay time if necessary
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleOrientationChange);
+    handleResize(); // Call on initial render
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleOrientationChange);
+    };
+  }, [currentSection]);
 
   const handleApplyClick = () => {
     navigate('/');
@@ -109,6 +137,8 @@ const Apply = () => {
     if (sectionRefs[sectionIndex - 1].current) {
       sectionRefs[sectionIndex - 1].current.scrollIntoView({
         behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
       });
     }
     setCurrentSection(sectionIndex);
@@ -125,7 +155,6 @@ const Apply = () => {
     const { name, contact, generation, field, introduction, motivation, link } =
       formData;
     try {
-      // 문서 ID를 name + id으로 지정하여 저장
       await setDoc(doc(db, '6th', name + Date.now()), {
         name,
         contact,
@@ -137,7 +166,7 @@ const Apply = () => {
       });
 
       alert('마스외전 5기 모집 지원에 성공했습니다!');
-      window.location.href = '../index.html';
+      window.location.href = '../mars_invite/';
     } catch (error) {
       console.log('ERROR : ', error);
       alert('오류가 발생하였습니다. 관리자에게 문의해주세요.');
@@ -146,8 +175,6 @@ const Apply = () => {
 
   const handleSubmit = async () => {
     console.log('Form Data:', formData);
-
-    // 파이어 베이스 사용해서 formdata 저장하기
     try {
       await saveFormData(formData);
       console.log('Data saved to Firestore');
@@ -157,24 +184,31 @@ const Apply = () => {
   };
 
   const handleNext = (currentIndex) => {
-    if (currentIndex < sectionRefs.length - 1) {
-      scrollToSection(currentIndex + 2);
+    if (inputRefs.current[currentIndex]) {
+      inputRefs.current[currentIndex].blur();
     }
+    setTimeout(() => {
+      if (currentIndex < sectionRefs.length - 1) {
+        scrollToSection(currentIndex + 2);
+      }
+    }, 200);
   };
 
   return (
     <Container className="apply-container">
       <Logo src={logo} alt="Logo" />
       <BackButton onClick={handleApplyClick}>돌아가기</BackButton>
-      <Navigation>
-        {[1, 2, 3, 4, 5, 6, 7].map((section) => (
-          <NavButton
-            key={section}
-            onClick={() => scrollToSection(section)}
-            active={currentSection === section}
-          />
-        ))}
-      </Navigation>
+      {isNavigationVisible && (
+        <Navigation>
+          {[1, 2, 3, 4, 5, 6, 7].map((section) => (
+            <NavButton
+              key={section}
+              onClick={() => scrollToSection(section)}
+              active={currentSection === section}
+            ></NavButton>
+          ))}
+        </Navigation>
+      )}
       {[1, 2, 3, 4, 5, 6, 7].map((section, index) => (
         <Section key={section} ref={sectionRefs[index]}>
           {index === 0 && (
@@ -213,7 +247,6 @@ const Apply = () => {
               onChange={(value) => handleInputChange('motivation', value)}
             />
           )}
-
           {index === 6 && (
             <Section7
               onNext={handleSubmit}

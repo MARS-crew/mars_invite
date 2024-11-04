@@ -5,15 +5,48 @@ body {
   height: 100%;
   width: 100%;
 }
-
+body {
+  overflow: hidden;
+}
 * {
   box-sizing: border-box;
 }
 
 .home-container {
-  width: 100vw;
+  width: 100dvw;
   height: 400dvh;
   display: flex;
   flex-direction: column;
   background: #000;
+}
+.vertical-line {
+  position: fixed;
+  left: 5rem;
+  top: 0;
+  height: 100vh;
+  border-left: 1px dotted rgb(255, 255, 255);
+  z-index: 3;
+}
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  color: #000;
+  z-index: 3;
+}
+.add {
+  position: fixed;
+  color: white;
+  width: 130px;
+  height: 50px;
+  top: 0;
+  right: 0;
+  font-weight: 600;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
 }

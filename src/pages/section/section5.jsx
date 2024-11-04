@@ -12,9 +12,9 @@ const StyledTextarea = styled.textarea`
   width: 100%;
   outline: none;
   resize: none;
-  overflow-y: hidden;
+  overflow-y: auto;
   line-height: 1.5rem;
-  max-height: calc(1.5rem * 10);
+  max-height: calc(1.5rem * 6);
   &:focus {
     border-bottom: 3px solid #fff;
   }
@@ -52,7 +52,7 @@ const Section5 = ({ onNext, onChange }) => {
 
   const handleInput = () => {
     const textarea = textareaRef.current;
-    textarea.style.height = 'auto';
+    textarea.style.height = 'auto'; // Reset height
     textarea.style.height = `${Math.min(textarea.scrollHeight, 1.5 * 10 * 16)}px`;
   };
 

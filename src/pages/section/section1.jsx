@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import styled from 'styled-components';
+import { useRef } from 'react'; // useRef를 추가
 
 const StyledInput = styled.input`
   background-color: transparent;
@@ -42,15 +43,21 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Section1 = ({ onNext, onChange }) => (
-  <Container>
-    <Question>1. 이름을 남겨주세요.</Question>
-    <StyledInput
-      onChange={(e) => onChange(e.target.value)}
-      placeholder="이름을 입력하세요"
-    />
-    <Button onClick={onNext}>다음</Button>
-  </Container>
-);
+const Section1 = ({ onNext, onChange }) => {
+  const inputRef = useRef(null); // inputRef 생성
+
+  return (
+    <Container>
+      <Question>1. 이름을 남겨주세요.</Question>
+      <StyledInput
+        ref={inputRef} // ref를 StyledInput에 연결
+        onChange={(e) => onChange(e.target.value)}
+        onBlur={onNext} // 포커스가 해제될 때 onNext 호출
+        placeholder="이름을 입력하세요"
+      />
+      <Button onClick={onNext}>다음</Button>
+    </Container>
+  );
+};
 
 export default Section1;
