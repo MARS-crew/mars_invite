@@ -2160,7 +2160,7 @@ This typically indicates that your device does not have a healthy Internet conne
  * limitations under the License.
  */function nN(e,t,n){let r;return r=e?e.toFirestore(t):t,r}function rN(e,t,n){e=Uf(e,On);const r=Uf(e.firestore,bw),i=nN(e.converter,t);return iN(r,[Y4(X4(r),"setDoc",e._key,i,e.converter!==null,n).toMutation(e._key,Vn.none())])}function iN(e,t){return function(r,i){const s=new jr;return r.asyncQueue.enqueueAndForget(async()=>k4(await F4(r),i,s)),s.promise}(Q4(e),t)}(function(t,n=!0){(function(i){ls=i})(hR),Zl(new Mo("firestore",(r,{instanceIdentifier:i,options:s})=>{const a=r.getProvider("app").getImmediate(),l=new bw(new AR(r.getProvider("auth-internal")),new kR(r.getProvider("app-check-internal")),function(h,d){if(!Object.prototype.hasOwnProperty.apply(h.options,["projectId"]))throw new X(z.INVALID_ARGUMENT,'"projectId" not provided in firebase.initializeApp.');return new ru(h.options.projectId,d)}(a,i),a);return s=Object.assign({useFetchStreams:n},s),l._setSettings(s),l},"PUBLIC").setMultipleInstances(!0)),Vi(Ly,"4.7.4",t),Vi(Ly,"4.7.4","esm2017")})();const sN={apiKey:"AIzaSyC_EpczWIqfPuPI3NEkZCZXSDbwpxO8Hu4",authDomain:"recruiting-site-7dd38.firebaseapp.com",projectId:"recruiting-site-7dd38",storageBucket:"recruiting-site-7dd38.appspot.com",messagingSenderId:"131998017853",appId:"1:131998017853:web:dc5a5a95d5075147f9bd54",measurementId:"G-SLCJEG0272"},oN=G_(sN),aN=H4(oN),lN=K.div`
   width: 100%;
-  height: 700dvh;
+  height: 700svh;
   overflow-y: scroll;
   position: relative;
   display: flex;
@@ -2190,8 +2190,8 @@ This typically indicates that your device does not have a healthy Internet conne
   text-align: center;
   z-index: 1;
 `,hN=K.section`
-  height: 100dvh;
-  width: 100vw;
+  height: 100svh;
+  width: 100dvw;
   display: flex;
   align-items: center;
   justify-content: center;
