@@ -191,7 +191,7 @@ Error generating stack: `+s.message+`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`,mx=({onNext:e,onChange:t})=>x.jsxs(px,{children:[x.jsx(fx,{children:"1. 이름을 남겨주세요."}),x.jsx(hx,{onChange:n=>t(n.target.value),placeholder:"이름을 입력하세요"}),x.jsx(dx,{onClick:e,children:"다음"})]}),gx=K.input`
+`,mx=({onNext:e,onChange:t})=>{const n=j.useRef(null);return x.jsxs(px,{children:[x.jsx(fx,{children:"1. 이름을 남겨주세요."}),x.jsx(hx,{ref:n,onChange:r=>t(r.target.value),onBlur:e,placeholder:"이름을 입력하세요"}),x.jsx(dx,{onClick:e,children:"다음"})]})},gx=K.input`
   background-color: transparent;
   border: none;
   border-bottom: 2px solid #ccc;
@@ -316,7 +316,7 @@ Error generating stack: `+s.message+`
   resize: none;
   overflow-y: auto;
   line-height: 1.5rem;
-  max-height: calc(1.5rem * 10);
+  max-height: calc(1.5rem * 6);
   &:focus {
     border-bottom: 3px solid #fff;
   }
@@ -353,7 +353,7 @@ Error generating stack: `+s.message+`
   resize: none;
   overflow-y: hidden;
   line-height: 1.5rem;
-  max-height: calc(1.5rem * 10);
+  max-height: calc(1.5rem * 6);
   &:focus {
     border-bottom: 3px solid #fff;
   }
