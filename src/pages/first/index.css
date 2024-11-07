@@ -69,8 +69,9 @@
   margin-left: 50px;
   margin-top: 50px;
 }
-.down-arrow {
+.first_down-arrow {
   position: absolute;
+  animation: bounce 2s infinite;
   left: 3.75rem;
   bottom: 80px;
   width: 40px;
@@ -78,6 +79,20 @@
   transition: transform 1s;
 }
 
-.down-arrow:hover {
+.first_down-arrow.hidden {
+  animation: none; /* 애니메이션 중지 */
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.first_down-arrow:hover {
   transform: scale(1.1);
 }

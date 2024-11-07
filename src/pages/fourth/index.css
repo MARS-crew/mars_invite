@@ -43,15 +43,15 @@
 .scrolling-text {
   color: white;
   position: relative;
-  animation: scroll 60s linear infinite;
+  animation: scroll 44s linear infinite;
 }
 
 @keyframes scroll {
   0% {
-    transform: translateY(60%);
+    transform: translateY(55%);
   }
   100% {
-    transform: translateY(-100%);
+    transform: translateY(-60%);
   }
 }
 

@@ -9,8 +9,8 @@ import { useState, useEffect } from 'react';
 import { useTransition, animated, useSpringRef } from '@react-spring/web';
 
 const pages = [
-  ({ setIndex }) => (
-    <animated.div className="page lightpink">
+  ({ style, setIndex }) => (
+    <animated.div className="page lightpink" style={style}>
       <h2 className="page-title">마스외전에 놀러와</h2>
       <h3 className="page-subtitle" onClick={() => setIndex(1)}>
         우리는
@@ -35,9 +35,9 @@ const SecondScreen = () => {
   const transitions = useTransition(index, {
     ref: transRef,
     keys: null,
-    from: { opacity: 0, transform: 'translate3d(100%,0,0)' },
+    from: { opacity: 1, transform: 'translate3d(100%,0,0)' },
     enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
-    leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
+    leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' }, // 옆으로 밀려서 사라짐
   });
 
   useEffect(() => {

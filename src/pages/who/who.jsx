@@ -20,7 +20,6 @@ const StyledText = styled.p`
   }
 `;
 
-// 각 텍스트에 위치 설정
 const ProfessorText = styled(StyledText)`
   top: 10%;
   left: 10%;

@@ -128,6 +128,10 @@ const Apply = () => {
     };
   }, [currentSection]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleApplyClick = () => {
     navigate('/');
     window.scrollTo({ top: 0, left: 0 });
@@ -166,7 +170,7 @@ const Apply = () => {
       });
 
       alert('마스외전 5기 모집 지원에 성공했습니다!');
-      window.location.href = '../mars_invite/';
+      window.location.href = '../';
     } catch (error) {
       console.log('ERROR : ', error);
       alert('오류가 발생하였습니다. 관리자에게 문의해주세요.');

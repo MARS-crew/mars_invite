@@ -1,10 +1,20 @@
 import Planet from '@/assets/images/svg/mars.svg';
 import astronaut from '@/assets/images/svg/astronaut.svg';
 import downArrow from '@/assets/images/svg/down.svg';
+import { useState, useEffect } from 'react';
 import './index.css';
 
-const FirstScreen = () => {
+const FirstScreen = ({ onNext }) => {
   //const [position, setPosition] = useState({ top: 0, left: 0 });
+  const [showAnimation, setShowAnimation] = useState(true);
+
+  const scrollToNextScreen = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth',
+    });
+    setShowAnimation(false); // 클릭 시 애니메이션 중지
+  };
 
   // useEffect(() => {
   //   const moveAstronaut = () => {
@@ -19,13 +29,6 @@ const FirstScreen = () => {
   //   const interval = setInterval(moveAstronaut, 3000);
   //   return () => clearInterval(interval);
   // }, []);
-
-  const scrollToNextScreen = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth',
-    });
-  };
 
   return (
     <div className="first-screen-container">
@@ -46,7 +49,7 @@ const FirstScreen = () => {
       <img
         src={downArrow}
         alt="Down Arrow"
-        className="down-arrow"
+        className={`first_down-arrow ${!showAnimation ? 'hidden' : ''}`}
         onClick={scrollToNextScreen}
       />
 
