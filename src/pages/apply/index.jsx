@@ -169,7 +169,7 @@ const Apply = () => {
         link,
       });
 
-      alert('마스외전 6기 모집 지원에 성공했습니다!');
+      alert('마스외전 모집 지원에 성공했습니다!');
       window.location.href = '../';
     } catch (error) {
       console.log('ERROR : ', error);
