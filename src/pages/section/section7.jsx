@@ -62,7 +62,7 @@ const Section7 = ({ onNext, onChange }) => {
       <StyledTextarea
         ref={textareaRef}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="지원동기를 적어주세요"
+        placeholder="링크를 작성해주세요"
         rows="1"
         onInput={handleInput}
       />
