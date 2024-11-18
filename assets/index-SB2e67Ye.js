@@ -415,7 +415,7 @@ Error generating stack: `+s.message+`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`,Qx=({onNext:e,onChange:t})=>{const n=j.useRef(null),r=()=>{const i=n.current;i.style.height="auto",i.style.height=`${Math.min(i.scrollHeight,1.5*10*16)}px`};return P.jsxs(Hx,{children:[P.jsx(zx,{children:"7. 자기를 드러낼 수 있는 링크를 적어주세요."}),P.jsx(Ux,{ref:n,onChange:i=>t(i.target.value),placeholder:"지원동기를 적어주세요",rows:"1",onInput:r}),P.jsx(Bx,{onClick:e,children:"제출"})]})};var Cy={};/**
+`,Qx=({onNext:e,onChange:t})=>{const n=j.useRef(null),r=()=>{const i=n.current;i.style.height="auto",i.style.height=`${Math.min(i.scrollHeight,1.5*10*16)}px`};return P.jsxs(Hx,{children:[P.jsx(zx,{children:"7. 자기를 드러낼 수 있는 링크를 적어주세요."}),P.jsx(Ux,{ref:n,onChange:i=>t(i.target.value),placeholder:"링크를 작성해주세요",rows:"1",onInput:r}),P.jsx(Bx,{onClick:e,children:"제출"})]})};var Cy={};/**
  * @license
  * Copyright 2017 Google LLC
  *
